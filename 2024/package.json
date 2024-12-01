@@ -1,0 +1,12 @@
+{
+  "name": "aoc-2024",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bile Industries",
+  "license": "ISC"
+}
