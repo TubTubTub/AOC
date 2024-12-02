@@ -1,0 +1,6 @@
+{
+    "code-runner.enableAppInsights": false,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.ignoreSelection": true,
+    "editor.wordWrap": "on"
+}
