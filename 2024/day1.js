@@ -1,4 +1,4 @@
-import fs from 'fs'
+yimport fs from 'fs'
 
 let input = fs.readFileSync('inputs/day1.txt', { encoding: 'utf8', flag: 'r' })
 input = input.toString().split('\n')
