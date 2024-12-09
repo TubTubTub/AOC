@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-let input = fs.readFileSync('inputs/day7.txt', { encoding: 'utf8', flag: 'r' })
+let input = fs.readFileSync('inputs/day8.txt', { encoding: 'utf8', flag: 'r' })
 input = input.toString().split('\n')
 input = input.map((line) => line.trim())
 
