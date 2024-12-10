@@ -64,40 +64,84 @@ const part2 = () => {
         runningSum += Number(num)
     }
 
-    for (let i=expanded.length - 1 ; i >= 0 ; i--) {
-        const numToMove = expanded[i]
 
-        let candidate = Infinity
-        let candidateSize = null
 
-        for (let j=1 ; j <= numToMove.length ; j++) {
-            const availablePos = sizeMap.get(j) || []
-            
-            if (availablePos.length > 0 && availablePos[0] < candidate) {
-                candidate = availablePos[0]
-                candidateSize = j
+    const findSpace = (number, limit) => {
+        let streak = 0
+
+        for (let i=0 ; i < limit ; i++) {
+            if (expanded[i] === '.') {
+                streak += 1
+
+                if (streak === number) {
+                    return i - streak + 1
+                }
+            } else {
+                streak = 0
             }
         }
 
-        if (candidate === Infinity) {
-            continue
-        }
-
-        expanded[i] = '.'
-
-        for (let j=0 ; j < numToMove.length ; j++) {
-            expanded[candidate + j] = numToMove
-        }
-
-        candi
-
-        const remainder = numToMove.length - candidateSize
-
-
-
-
-        
+        return null
     }
+
+    let i = expanded.length - 1
+    let current = null
+    let length = 0
+
+    while (i >= -1) {
+        if (expanded[i] !== current) {
+            if (current !== '.') {
+                const insertIndex = findSpace(length, i)
+
+                if (insertIndex) {
+                    console.log('free space', insertIndex, length)
+                    for (let j=0 ; j < length ; j++) {
+                        // console.log('inserting', length, current, 'at', insertIndex + j, 'replacing at', i + j)
+                        expanded[i + j] = '.'
+                        expanded[insertIndex + j] = current
+                    }
+                }
+                
+            }
+            current = expanded[i]
+            length = 1
+        } else {
+            length += 1
+        }
+
+        i -= 1
+    }
+
+    console.log(expanded)
 }
+
+    // for (let i=expanded.length - 1 ; i >= 0 ; i--) {
+    //     const numToMove = expanded[i]
+
+    //     let candidate = Infinity
+    //     let candidateSize = null
+
+    //     for (let j=1 ; j <= numToMove.length ; j++) {
+    //         const availablePos = sizeMap.get(j) || []
+            
+    //         if (availablePos.length > 0 && availablePos[0] < candidate) {
+    //             candidate = availablePos[0]
+    //             candidateSize = j
+    //         }
+    //     }
+
+    //     if (candidate === Infinity) {
+    //         continue
+    //     }
+
+    //     expanded[i] = '.'
+
+    //     for (let j=0 ; j < numToMove.length ; j++) {
+    //         expanded[candidate + j] = numToMove
+    //     }
+
+    //     candi
+
+    //     const remainder = numToMove.length - candidateSize
 
 part2()
