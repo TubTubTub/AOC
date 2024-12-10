@@ -87,7 +87,7 @@ const part2 = () => {
     let i = expanded.length - 1
     let current = null
     let length = 0
-
+    console.log('BASE' ,expanded)
     while (i >= -1) {
         if (expanded[i] !== current) {
             if (current !== '.') {
@@ -97,6 +97,7 @@ const part2 = () => {
                     console.log('free space', insertIndex, length)
                     for (let j=0 ; j < length ; j++) {
                         // console.log('inserting', length, current, 'at', insertIndex + j, 'replacing at', i + j)
+                        console.log(expanded)
                         expanded[i + j] = '.'
                         expanded[insertIndex + j] = current
                     }
