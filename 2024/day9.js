@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-let input = fs.readFileSync('2024/inputs/day9.txt', { encoding: 'utf8', flag: 'r' })
+let input = fs.readFileSync('inputs/day9.txt', { encoding: 'utf8', flag: 'r' })
 input = input.toString().trim()
 
 const part1 = () => {
