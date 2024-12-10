@@ -115,6 +115,3 @@ const part2 = () => {
 
     console.log(result)
 }
-
-part1()
-part2()
